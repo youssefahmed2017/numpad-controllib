@@ -1,0 +1,90 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Go live, record, clip and mute in OBS. Needs OBS with its WebSocket server on (OBS: Tools > WebSocket Server Settings; NumpadControl: Settings > OBS). No scene or source names, so it works with any setup.",
+    "tags": [
+      "streaming",
+      "recording",
+      "obs"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [
+      "OBS WebSocket server on"
+    ],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Streaming (OBS)",
+    "match": "obs,com.obsproject.Studio,obs64",
+    "bindings": {
+      "7": {
+        "tap": {
+          "action": "obs_toggle_streaming",
+          "params": {}
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "obs_toggle_recording",
+          "params": {}
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "obs_save_replay",
+          "params": {}
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "obs_toggle_replay_buffer",
+          "params": {}
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "mic_mute",
+          "params": {}
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "obs_toggle_virtual_cam",
+          "params": {}
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "volume_down",
+          "params": {}
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "volume_mute",
+          "params": {}
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "volume_up",
+          "params": {}
+        }
+      },
+      "+": {
+        "tap": {
+          "action": "obs_toggle_pause_recording",
+          "params": {}
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

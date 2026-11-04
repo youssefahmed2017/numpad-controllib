@@ -1,0 +1,99 @@
+name: Validate profiles
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validator tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Validate every profile
+        run: python tools/nclib.py validate
+
+      - name: JSON Schema check
+        run: |
+          pip install --quiet check-jsonschema==0.29.4
+          check-jsonschema --schemafile schema/profile.schema.json $(find profiles -name '*.json')
+
+      - name: index.json is up to date
+        # contributors don't edit index.json (it would conflict between PRs); maintainers
+        # regenerate it on main, so it is only checked there
+        if: github.event_name != 'pull_request'
+        run: python tools/nclib.py index --check
+
+  review:
+    # What a reviewer needs to know about a pull request: which profiles it touches,
+    # what they do (⚠ marks actions that run programs, press keys or power off), and
+    # whether a community author only touched their own folder.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Changed profiles
+        id: changed
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git diff --name-only --diff-filter=AMR "$BASE" "$HEAD" -- profiles | grep '\.json$' > changed.txt || true
+          echo "count=$(wc -l < changed.txt)" >> "$GITHUB_OUTPUT"
+          cat changed.txt
+
+      - name: Community authors only touch their own folder
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+          LOGIN: ${{ github.event.pull_request.user.login }}
+          ASSOCIATION: ${{ github.event.pull_request.author_association }}
+        run: |
+          case "$ASSOCIATION" in OWNER|MEMBER|COLLABORATOR) echo "maintainer PR: skipped"; exit 0;; esac
+          # CI runs tools/ and schema/ from the PR itself, so a community PR may change nothing
+          # but its own profiles; otherwise it could loosen the checks it is judged by.
+          login=$(echo "$LOGIN" | tr A-Z a-z)
+          bad=0
+          while read -r f; do
+            [ -z "$f" ] && continue
+            case "$(echo "$f" | tr A-Z a-z)" in
+              profiles/community/"$login"/*.json) ;;
+              profiles/community/*/*)
+                echo "::error file=$f::community profiles from @$LOGIN go in profiles/community/$LOGIN/"; bad=1;;
+              *)
+                echo "::error file=$f::community pull requests only add or change files in profiles/community/$LOGIN/ (a maintainer updates the rest, including index.json)"; bad=1;;
+            esac
+          done < <(git diff --name-only "$BASE" "$HEAD")
+          exit $bad
+
+      - name: Summary for reviewers
+        if: steps.changed.outputs.count != '0'
+        run: |
+          {
+            echo "## Profiles in this pull request"
+            echo
+            echo '```'
+            xargs -a changed.txt python tools/nclib.py validate || true
+            echo '```'
+            echo
+            echo "Check every ⚠ line: those actions run programs, press keys, run code or power the PC off."
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,87 @@
+{
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "tester",
+    "description": "A fixture for the validator tests.",
+    "tags": [
+      "test"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ]
+  },
+  "profile": {
+    "name": "Fixture",
+    "match": "kitty",
+    "bindings": {
+      "5": {
+        "tap": {
+          "action": "media_play_pause",
+          "params": {}
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "macro",
+          "params": {
+            "steps": [
+              {
+                "action": "press_keys",
+                "params": {
+                  "keys": "Super + Q"
+                }
+              },
+              {
+                "action": "wait",
+                "params": {
+                  "seconds": "0.5"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "if_mode",
+          "params": {
+            "mode": "gaming",
+            "then": [
+              {
+                "action": "mic_mute",
+                "params": {}
+              }
+            ]
+          }
+        }
+      },
+      "000": {
+        "tap": {
+          "action": "volume_set",
+          "params": {
+            "percent": "40%"
+          }
+        }
+      },
+      "KEY_TAB": {
+        "tap": {
+          "action": "media_next",
+          "params": {}
+        }
+      }
+    },
+    "layer_bindings": {
+      "9": {
+        "hold": {
+          "action": "media_next",
+          "params": {},
+          "rapid": true,
+          "turbo": 10
+        }
+      }
+    }
+  }
+}

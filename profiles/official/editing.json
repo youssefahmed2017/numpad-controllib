@@ -1,0 +1,104 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Copy, paste, cut, undo, redo, save, select all and screenshots. General purpose: it has no window match, so copy its keys into Default (or set a match) after importing.",
+    "tags": [
+      "editing",
+      "productivity",
+      "general"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Editing",
+    "match": "",
+    "bindings": {
+      "1": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+c"
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+v"
+          }
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+x"
+          }
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+z"
+          }
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+z"
+          }
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+s"
+          }
+        }
+      },
+      "7": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+a"
+          }
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "screenshot_region",
+          "params": {}
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "screenshot_full",
+          "params": {}
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "Enter"
+          }
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Tabs, history and zoom for Firefox, Chrome, Chromium, Edge and Brave. Hold 5 to reopen the last closed tab.",
+    "tags": [
+      "browser",
+      "productivity"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Web browser",
+    "match": "firefox,google-chrome,chrome,chromium,msedge,microsoft-edge,brave,brave-browser",
+    "bindings": {
+      "7": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+Left"
+          }
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+r"
+          }
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+Right"
+          }
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+Tab"
+          }
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+t"
+          }
+        },
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+t"
+          }
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+Tab"
+          }
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+minus"
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+0"
+          }
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+equal"
+          }
+        }
+      },
+      "0": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+l"
+          }
+        }
+      },
+      ".": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+w"
+          }
+        }
+      },
+      "/": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+f"
+          }
+        }
+      },
+      "*": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "F11"
+          }
+        }
+      },
+      "+": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "PageDown"
+          }
+        }
+      },
+      "-": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "PageUp"
+          }
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+Enter"
+          }
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

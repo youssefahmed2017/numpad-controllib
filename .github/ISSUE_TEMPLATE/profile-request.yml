@@ -1,0 +1,29 @@
+name: Profile request
+description: Ask for a profile for an app or a job
+labels: ["profile request"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: App or job
+      placeholder: e.g. DaVinci Resolve, Blender, Discord, Excel
+    validations:
+      required: true
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: Platform
+      multiple: true
+      options: [Windows, Linux, Linux (Hyprland)]
+    validations:
+      required: true
+  - type: textarea
+    id: keys
+    attributes:
+      label: What should the keys do?
+      description: The shortcuts or actions you use most. A rough list is fine.
+  - type: input
+    id: window
+    attributes:
+      label: Window class / program name (if you know it)
+      description: In NumpadControl, a profile's Match field can pick it for you while the app is focused.

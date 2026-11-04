@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: NumpadControl app issues
+    url: https://github.com/youssefahmed2017/numpad-control/issues
+    about: Bugs in the app itself (not in a library profile) go here.

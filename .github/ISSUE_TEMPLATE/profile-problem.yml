@@ -1,0 +1,32 @@
+name: Problem with a profile
+description: A profile from the library doesn't import or doesn't work
+labels: ["bug"]
+body:
+  - type: input
+    id: profile
+    attributes:
+      label: Profile
+      placeholder: e.g. official/obs-streaming
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: NumpadControl version
+      placeholder: e.g. 0.3.1
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: [Windows, Linux, Linux (Hyprland)]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What the import screen listed as left out, or which key misbehaves.
+    validations:
+      required: true

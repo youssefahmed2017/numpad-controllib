@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/youssefahmed2017/numpad-controllib/schema/profile.schema.json",
+  "title": "NumpadControl library profile",
+  "description": "A NumpadControl profile file (as made by Profile ⋯ → Export profile…) plus a \"meta\" block for the library. The app reads only format, version and profile and ignores meta, so library files import as they are. This schema checks the shape for editors; tools/nclib.py validate also checks action settings, macros and file paths.",
+  "type": "object",
+  "required": ["format", "version", "profile", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"type": "string"},
+    "format": {"const": "numpadcontrol-profile"},
+    "version": {"const": 1},
+    "app_version": {"type": "string", "pattern": "^(\\d+\\.\\d+\\.\\d+)?$", "description": "The NumpadControl version that exported the file."},
+    "meta": {"$ref": "#/$defs/meta"},
+    "profile": {"$ref": "#/$defs/profile"}
+  },
+  "$defs": {
+    "meta": {
+      "type": "object",
+      "required": ["author", "description", "tags", "platforms"],
+      "additionalProperties": false,
+      "properties": {
+        "author": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,38}$", "description": "Your GitHub user name. Community profiles live in profiles/community/<author>/."},
+        "description": {"type": "string", "minLength": 10, "maxLength": 500, "description": "What the profile is for, and anything people must set up first (OBS scene names, modes…)."},
+        "tags": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"}},
+        "platforms": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["windows", "linux", "hyprland"]}},
+        "requires": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 80}, "description": "Things that must be set up, e.g. \"OBS WebSocket server on\"."},
+        "min_app_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "homepage": {"type": "string", "pattern": "^https://"}
+      }
+    },
+    "profile": {
+      "type": "object",
+      "required": ["name", "bindings"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1, "maxLength": 60},
+        "match": {"type": "string", "maxLength": 200, "description": "Comma-separated window classes it switches on for: the Linux window class and the Windows program name without .exe, e.g. \"obs,com.obsproject.Studio,obs64\". Empty: never switches on by itself."},
+        "bindings": {"$ref": "#/$defs/layer"},
+        "layer_bindings": {"$ref": "#/$defs/layer"}
+      }
+    },
+    "layer": {
+      "type": "object",
+      "maxProperties": 200,
+      "propertyNames": {
+        "anyOf": [
+          {"enum": ["NumLock", "/", "*", "Backspace", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "+", "Enter", ".", "000", "00"]},
+          {"pattern": "^([a-z0-9_-]+:)?KEY_[A-Z0-9_]+$", "description": "An extra key added in Learn mode, e.g. KEY_TAB or hp:KEY_F1."}
+        ]
+      },
+      "additionalProperties": {"$ref": "#/$defs/slots"}
+    },
+    "slots": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "tap": {"$ref": "#/$defs/binding"},
+        "hold": {"$ref": "#/$defs/binding"},
+        "double": {"$ref": "#/$defs/binding"}
+      }
+    },
+    "binding": {
+      "type": "object",
+      "required": ["action"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"$ref": "#/$defs/action_id"},
+        "params": {"type": "object"},
+        "rapid": {"type": "boolean"},
+        "turbo": {"type": "integer", "minimum": 1, "maximum": 60}
+      },
+      "allOf": [
+        {"if": {"properties": {"action": {"const": "macro"}}}, "then": {"properties": {"params": {"properties": {"steps": {"type": "array", "minItems": 1, "maxItems": 30, "items": {"$ref": "#/$defs/step"}}}, "required": ["steps"]}}}},
+        {"if": {"properties": {"action": {"const": "if_mode"}}}, "then": {"properties": {"params": {"properties": {"mode": {"type": "string"}, "then": {"type": "array", "maxItems": 30, "items": {"$ref": "#/$defs/step"}}, "otherwise": {"type": "array", "maxItems": 30, "items": {"$ref": "#/$defs/step"}}}}}}},
+        {"if": {"properties": {"action": {"const": "press_keys"}}}, "then": {"properties": {"params": {"properties": {"keys": {"type": "string", "minLength": 1}}}}}},
+        {"if": {"properties": {"action": {"const": "type_text"}}}, "then": {"properties": {"params": {"properties": {"text": {"type": "string", "minLength": 1}}, "required": ["text"]}}}}
+      ]
+    },
+    "step": {
+      "type": "object",
+      "required": ["action"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"allOf": [{"$ref": "#/$defs/action_id"}, {"not": {"enum": ["none", "macro", "if_mode", "run_python", "force_quit", "suspend", "shutdown", "reboot"]}}]},
+        "params": {"type": "object"}
+      }
+    },
+    "action_id": {
+      "description": "Action ids known to NumpadControl 0.3.1 (schema/actions.json).",
+      "enum": [
+        "none", "open_browser", "open_url", "open_path", "launch_app", "copy_text", "show_notification",
+        "type_text", "press_keys", "screenshot_full", "screenshot_region",
+        "hypr_workspace", "hypr_move_to_workspace", "hypr_next_workspace", "hypr_prev_workspace", "hypr_close",
+        "hypr_fullscreen", "hypr_float", "focus_window", "hypr_scratchpad",
+        "obs_start_recording", "obs_stop_recording", "obs_toggle_recording", "obs_toggle_pause_recording",
+        "obs_pause_recording", "obs_resume_recording", "obs_start_streaming", "obs_stop_streaming",
+        "obs_toggle_streaming", "obs_start_both", "obs_stop_both", "obs_switch_scene", "obs_toggle_source",
+        "obs_toggle_mute", "obs_toggle_filter", "obs_toggle_virtual_cam", "obs_toggle_replay_buffer", "obs_save_replay",
+        "media_play_pause", "media_stop", "media_next", "media_previous", "voice_toggle", "voice_on", "voice_off",
+        "play_sound", "stop_sounds", "volume_up", "volume_down", "volume_set", "volume_mute", "mic_mute",
+        "app_volume_up", "app_volume_down", "app_volume_set", "app_mute", "output_switch", "output_next",
+        "dnd_toggle", "lock_screen", "privacy_panic", "privacy_restore", "force_quit", "suspend", "shutdown", "reboot",
+        "mode_toggle", "mode_on", "mode_off", "if_mode", "set_switch", "set_next", "set_previous",
+        "macro", "run_python", "wait", "wait_for_window"
+      ]
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "format": "numpadcontrol-library-index",
+  "version": 1,
+  "app_version": "0.3.1",
+  "count": 5,
+  "profiles": [
+    {
+      "id": "official/editing",
+      "path": "profiles/official/editing.json",
+      "tier": "official",
+      "name": "Editing",
+      "match": [],
+      "author": "youssefahmed2017",
+      "description": "Copy, paste, cut, undo, redo, save, select all and screenshots. General purpose: it has no window match, so copy its keys into Default (or set a match) after importing.",
+      "tags": [
+        "editing",
+        "productivity",
+        "general"
+      ],
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "requires": [],
+      "min_app_version": "0.3.1",
+      "keys": 10,
+      "actions": {
+        "press_keys": 8,
+        "screenshot_full": 1,
+        "screenshot_region": 1
+      },
+      "risky_actions": [
+        "press_keys"
+      ]
+    },
+    {
+      "id": "official/media-and-volume",
+      "path": "profiles/official/media-and-volume.json",
+      "tier": "official",
+      "name": "Media and volume",
+      "match": [],
+      "author": "youssefahmed2017",
+      "description": "Play, skip, volume and the microphone. General purpose: it has no window match, so after importing copy its keys into Default (or set a match) for it to apply everywhere.",
+      "tags": [
+        "media",
+        "audio",
+        "general"
+      ],
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "requires": [],
+      "min_app_version": "0.3.1",
+      "keys": 12,
+      "actions": {
+        "media_next": 1,
+        "media_play_pause": 2,
+        "media_previous": 1,
+        "media_stop": 1,
+        "mic_mute": 1,
+        "output_next": 1,
+        "volume_down": 2,
+        "volume_mute": 1,
+        "volume_up": 2
+      },
+      "risky_actions": []
+    },
+    {
+      "id": "official/obs-streaming",
+      "path": "profiles/official/obs-streaming.json",
+      "tier": "official",
+      "name": "Streaming (OBS)",
+      "match": [
+        "obs",
+        "com.obsproject.Studio",
+        "obs64"
+      ],
+      "author": "youssefahmed2017",
+      "description": "Go live, record, clip and mute in OBS. Needs OBS with its WebSocket server on (OBS: Tools > WebSocket Server Settings; NumpadControl: Settings > OBS). No scene or source names, so it works with any setup.",
+      "tags": [
+        "streaming",
+        "recording",
+        "obs"
+      ],
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "requires": [
+        "OBS WebSocket server on"
+      ],
+      "min_app_version": "0.3.1",
+      "keys": 10,
+      "actions": {
+        "mic_mute": 1,
+        "obs_save_replay": 1,
+        "obs_toggle_pause_recording": 1,
+        "obs_toggle_recording": 1,
+        "obs_toggle_replay_buffer": 1,
+        "obs_toggle_streaming": 1,
+        "obs_toggle_virtual_cam": 1,
+        "volume_down": 1,
+        "volume_mute": 1,
+        "volume_up": 1
+      },
+      "risky_actions": []
+    },
+    {
+      "id": "official/vscode",
+      "path": "profiles/official/vscode.json",
+      "tier": "official",
+      "name": "VS Code",
+      "match": [
+        "code",
+        "Code",
+        "code-oss",
+        "codium",
+        "VSCodium"
+      ],
+      "author": "youssefahmed2017",
+      "description": "Visual Studio Code: command palette, quick open, terminal, search and refactoring on the keys; hold the layer key for debugging (start, stop, step over, step into, step out).",
+      "tags": [
+        "coding",
+        "vscode",
+        "productivity"
+      ],
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "requires": [
+        "a layer key set in Settings (for the debugger keys)"
+      ],
+      "min_app_version": "0.3.1",
+      "keys": 23,
+      "actions": {
+        "press_keys": 23
+      },
+      "risky_actions": [
+        "press_keys"
+      ]
+    },
+    {
+      "id": "official/web-browser",
+      "path": "profiles/official/web-browser.json",
+      "tier": "official",
+      "name": "Web browser",
+      "match": [
+        "firefox",
+        "google-chrome",
+        "chrome",
+        "chromium",
+        "msedge",
+        "microsoft-edge",
+        "brave",
+        "brave-browser"
+      ],
+      "author": "youssefahmed2017",
+      "description": "Tabs, history and zoom for Firefox, Chrome, Chromium, Edge and Brave. Hold 5 to reopen the last closed tab.",
+      "tags": [
+        "browser",
+        "productivity"
+      ],
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "requires": [],
+      "min_app_version": "0.3.1",
+      "keys": 16,
+      "actions": {
+        "press_keys": 17
+      },
+      "risky_actions": [
+        "press_keys"
+      ]
+    }
+  ]
+}

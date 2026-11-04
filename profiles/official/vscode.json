@@ -1,0 +1,215 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Visual Studio Code: command palette, quick open, terminal, search and refactoring on the keys; hold the layer key for debugging (start, stop, step over, step into, step out).",
+    "tags": [
+      "coding",
+      "vscode",
+      "productivity"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [
+      "a layer key set in Settings (for the debugger keys)"
+    ],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "VS Code",
+    "match": "code,Code,code-oss,codium,VSCodium",
+    "bindings": {
+      "/": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+p"
+          }
+        }
+      },
+      "*": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+p"
+          }
+        }
+      },
+      "-": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+grave"
+          }
+        }
+      },
+      "7": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+Left"
+          }
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "F12"
+          }
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+Right"
+          }
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+b"
+          }
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+f"
+          }
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "F2"
+          }
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+slash"
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+d"
+          }
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "shift+alt+f"
+          }
+        }
+      },
+      "0": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+s"
+          }
+        }
+      },
+      ".": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+w"
+          }
+        }
+      },
+      "+": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+Tab"
+          }
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+Enter"
+          }
+        }
+      }
+    },
+    "layer_bindings": {
+      "7": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "F5"
+          }
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "shift+F5"
+          }
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+F5"
+          }
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "F10"
+          }
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "F11"
+          }
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "shift+F11"
+          }
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "F9"
+          }
+        }
+      }
+    }
+  }
+}

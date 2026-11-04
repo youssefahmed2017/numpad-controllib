@@ -1,0 +1,29 @@
+{
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "tester",
+    "description": "A fixture for the validator tests.",
+    "tags": [
+      "test"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ]
+  },
+  "profile": {
+    "name": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "match": "kitty",
+    "bindings": {
+      "5": {
+        "tap": {
+          "action": "media_play_pause",
+          "params": {}
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

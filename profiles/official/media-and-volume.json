@@ -1,0 +1,100 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Play, skip, volume and the microphone. General purpose: it has no window match, so after importing copy its keys into Default (or set a match) for it to apply everywhere.",
+    "tags": [
+      "media",
+      "audio",
+      "general"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Media and volume",
+    "match": "",
+    "bindings": {
+      "7": {
+        "tap": {
+          "action": "media_previous",
+          "params": {}
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "media_play_pause",
+          "params": {}
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "media_next",
+          "params": {}
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "volume_down",
+          "params": {}
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "volume_mute",
+          "params": {}
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "volume_up",
+          "params": {}
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "mic_mute",
+          "params": {}
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "output_next",
+          "params": {}
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "media_stop",
+          "params": {}
+        }
+      },
+      "+": {
+        "tap": {
+          "action": "volume_up",
+          "params": {}
+        }
+      },
+      "-": {
+        "tap": {
+          "action": "volume_down",
+          "params": {}
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "media_play_pause",
+          "params": {}
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}
