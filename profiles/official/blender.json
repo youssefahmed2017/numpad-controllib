@@ -1,0 +1,174 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Blender with a working numpad: while Blender is focused the keys send Blender's numpad view keys (front, right, top, camera, perspective, frame selected, orbit, zoom). Hold 1, 3 or 7 for the opposite view (back, left, bottom). Enter toggles edit mode and Backspace undoes. Keep Blender's Emulate Numpad preference off.",
+    "tags": [
+      "3d",
+      "blender",
+      "creative"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Blender",
+    "match": "blender,Blender",
+    "bindings": {
+      "1": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP1"
+          }
+        },
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+KP1"
+          }
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP3"
+          }
+        },
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+KP3"
+          }
+        }
+      },
+      "7": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP7"
+          }
+        },
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+KP7"
+          }
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+KP9"
+          }
+        }
+      },
+      "0": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP0"
+          }
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP5"
+          }
+        }
+      },
+      ".": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KPDOT"
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP2"
+          }
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP4"
+          }
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP6"
+          }
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KP8"
+          }
+        }
+      },
+      "+": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KPPLUS"
+          }
+        }
+      },
+      "-": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KPMINUS"
+          }
+        }
+      },
+      "/": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "KPSLASH"
+          }
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "Tab"
+          }
+        }
+      },
+      "Backspace": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+z"
+          }
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Zoom meetings: mute, camera, share screen, chat, participants, raise hand and leave. Leave (Alt+Q) is on a hold, so a stray tap can't end the meeting. Uses Zoom's default shortcuts.",
+    "tags": [
+      "meeting",
+      "video",
+      "zoom",
+      "work"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Zoom",
+    "match": "zoom,Zoom,zoom.us",
+    "bindings": {
+      "7": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+a"
+          }
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+v"
+          }
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+s"
+          }
+        },
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+shift+s"
+          }
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+h"
+          }
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+u"
+          }
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+y"
+          }
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+f"
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+r"
+          }
+        }
+      },
+      "-": {
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+q"
+          }
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "dnd_toggle",
+          "params": {}
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

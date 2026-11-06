@@ -36,6 +36,10 @@ jobs:
         if: github.event_name != 'pull_request'
         run: python tools/nclib.py index --check
 
+      - name: CATALOG.md and the README table are up to date
+        if: github.event_name != 'pull_request'
+        run: python tools/nclib.py catalog --check
+
   review:
     # What a reviewer needs to know about a pull request: which profiles it touches,
     # what they do (⚠ marks actions that run programs, press keys or power off), and

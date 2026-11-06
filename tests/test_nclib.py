@@ -66,6 +66,24 @@ class GoodFiles(unittest.TestCase):
             with self.subTest(path.name):
                 self.assertEqual(nclib.check_file(path).errors, [])
 
+    def test_index_has_checksums_of_the_files(self):
+        import hashlib
+        index, _ = nclib.build_index()
+        for e in index["profiles"]:
+            raw = (nclib.ROOT / e["path"]).read_bytes()
+            self.assertEqual(e["sha256"], hashlib.sha256(raw).hexdigest())
+            self.assertEqual(e["size"], len(raw))
+
+    def test_catalog_draws_the_pad(self):
+        index, _ = nclib.build_index()
+        text = nclib.render_catalog(index)
+        for e in index["profiles"]:
+            self.assertIn(f"## {e['name']}", text)
+        data = json.loads((nclib.ROOT / "profiles/official/discord.json").read_text(encoding="utf-8"))
+        pad = nclib.keymap(data)
+        self.assertIn("**7**<br>ctrl+shift+m", pad)
+        self.assertEqual(pad.count("\n"), 6)   # header, rule, five rows
+
     def test_index_builds(self):
         # whether index.json is current is checked by CI on main only (PRs don't update it)
         index, failed = nclib.build_index()

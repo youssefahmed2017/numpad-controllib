@@ -1,0 +1,100 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Between rounds and mid-game: mute the mic, do not disturb, screenshots (a region on hold of the full screenshot key), media and volume. * saves an OBS replay. General purpose: it has no window match, so after importing give it your game's window class (Edit profile…) or copy its keys into Default.",
+    "tags": [
+      "gaming",
+      "streaming",
+      "general"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [
+      "OBS WebSocket server on and the replay buffer started (for the replay key)"
+    ],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Gaming quick actions",
+    "match": "",
+    "bindings": {
+      "7": {
+        "tap": {
+          "action": "screenshot_full",
+          "params": {}
+        },
+        "hold": {
+          "action": "screenshot_region",
+          "params": {}
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "mic_mute",
+          "params": {}
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "dnd_toggle",
+          "params": {}
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "media_previous",
+          "params": {}
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "media_play_pause",
+          "params": {}
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "media_next",
+          "params": {}
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "volume_down",
+          "params": {}
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "volume_mute",
+          "params": {}
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "volume_up",
+          "params": {}
+        }
+      },
+      "*": {
+        "tap": {
+          "action": "obs_save_replay",
+          "params": {}
+        }
+      },
+      "0": {
+        "tap": {
+          "action": "output_next",
+          "params": {}
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

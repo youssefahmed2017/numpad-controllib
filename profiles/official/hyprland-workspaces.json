@@ -1,0 +1,204 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Hyprland: the number keys go to workspaces 1 to 9 (0 is 10), and holding one sends the focused window there. / and * go to the previous and next workspace; - closes the window, + toggles fullscreen, Enter floating, and . the scratchpad. General purpose: it has no window match, so after importing copy its keys into Default (or set a match) for it to apply everywhere.",
+    "tags": [
+      "hyprland",
+      "desktop",
+      "workspaces",
+      "general"
+    ],
+    "platforms": [
+      "hyprland"
+    ],
+    "requires": [],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Hyprland workspaces",
+    "match": "",
+    "bindings": {
+      "1": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "1"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "1"
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "2"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "2"
+          }
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "3"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "3"
+          }
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "4"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "4"
+          }
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "5"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "5"
+          }
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "6"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "6"
+          }
+        }
+      },
+      "7": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "7"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "7"
+          }
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "8"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "8"
+          }
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "9"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "9"
+          }
+        }
+      },
+      "0": {
+        "tap": {
+          "action": "hypr_workspace",
+          "params": {
+            "workspace": "10"
+          }
+        },
+        "hold": {
+          "action": "hypr_move_to_workspace",
+          "params": {
+            "workspace": "10"
+          }
+        }
+      },
+      "/": {
+        "tap": {
+          "action": "hypr_prev_workspace",
+          "params": {}
+        }
+      },
+      "*": {
+        "tap": {
+          "action": "hypr_next_workspace",
+          "params": {}
+        }
+      },
+      "-": {
+        "tap": {
+          "action": "hypr_close",
+          "params": {}
+        }
+      },
+      "+": {
+        "tap": {
+          "action": "hypr_fullscreen",
+          "params": {}
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "hypr_float",
+          "params": {}
+        }
+      },
+      ".": {
+        "tap": {
+          "action": "hypr_scratchpad",
+          "params": {}
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

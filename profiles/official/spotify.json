@@ -1,0 +1,122 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Spotify: play and pause, skip, volume of Spotify only, shuffle, repeat, like, search and back/forward. Shuffle, repeat, like and search use Spotify's desktop shortcuts.",
+    "tags": [
+      "music",
+      "spotify",
+      "media"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Spotify",
+    "match": "spotify,Spotify",
+    "bindings": {
+      "5": {
+        "tap": {
+          "action": "media_play_pause",
+          "params": {}
+        },
+        "hold": {
+          "action": "media_stop",
+          "params": {}
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "media_previous",
+          "params": {}
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "media_next",
+          "params": {}
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "app_volume_up",
+          "params": {
+            "app": "spotify"
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "app_volume_down",
+          "params": {
+            "app": "spotify"
+          }
+        }
+      },
+      "0": {
+        "tap": {
+          "action": "app_mute",
+          "params": {
+            "app": "spotify"
+          }
+        }
+      },
+      "7": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+s"
+          }
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+r"
+          }
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+shift+b"
+          }
+        }
+      },
+      "/": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+l"
+          }
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+Left"
+          }
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+Right"
+          }
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}

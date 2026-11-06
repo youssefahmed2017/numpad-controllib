@@ -1,0 +1,140 @@
+{
+  "$schema": "../../schema/profile.schema.json",
+  "format": "numpadcontrol-profile",
+  "version": 1,
+  "app_version": "0.3.1",
+  "meta": {
+    "author": "youssefahmed2017",
+    "description": "Discord: mute, deafen, quick switcher and moving between channels and servers. Discord's own shortcuts only work while its window is focused (the profile switches on at the same time); to mute from inside a game, use the mic mute key of the Media and volume profile instead.",
+    "tags": [
+      "chat",
+      "voice",
+      "discord"
+    ],
+    "platforms": [
+      "windows",
+      "linux"
+    ],
+    "requires": [],
+    "min_app_version": "0.3.1"
+  },
+  "profile": {
+    "name": "Discord",
+    "match": "discord,Discord,vesktop,Vesktop,legcord",
+    "bindings": {
+      "7": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+m"
+          }
+        }
+      },
+      "8": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+d"
+          }
+        }
+      },
+      "9": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+k"
+          }
+        }
+      },
+      "4": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+Up"
+          }
+        },
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+shift+Up"
+          }
+        }
+      },
+      "5": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "Esc"
+          }
+        },
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "shift+Esc"
+          }
+        }
+      },
+      "6": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+Down"
+          }
+        },
+        "hold": {
+          "action": "press_keys",
+          "params": {
+            "keys": "alt+shift+Down"
+          }
+        }
+      },
+      "1": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+alt+Up"
+          }
+        }
+      },
+      "3": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+alt+Down"
+          }
+        }
+      },
+      "2": {
+        "tap": {
+          "action": "mic_mute",
+          "params": {}
+        }
+      },
+      "+": {
+        "tap": {
+          "action": "app_volume_up",
+          "params": {
+            "app": "discord"
+          }
+        }
+      },
+      "-": {
+        "tap": {
+          "action": "app_volume_down",
+          "params": {
+            "app": "discord"
+          }
+        }
+      },
+      "Enter": {
+        "tap": {
+          "action": "press_keys",
+          "params": {
+            "keys": "ctrl+shift+u"
+          }
+        }
+      }
+    },
+    "layer_bindings": {}
+  }
+}
